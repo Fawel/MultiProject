@@ -15,7 +15,7 @@ class MULTIPROJECT1_API AMovingPlatform : public AStaticMeshActor
 	GENERATED_BODY()
 public:
 	AMovingPlatform();
-
+	virtual void BeginPlay() override; 
 	virtual void Tick(float deltaSeconds) override;
 
 	UPROPERTY(EditAnywhere)
