@@ -23,4 +23,9 @@ public:
 
 	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true))
 	FVector TargetLocation;
+
+private:
+	FVector GlobalStartLocation;
+	FVector GlobalEndLocation;
+	float Distance;
 };
