@@ -2,6 +2,7 @@
 
 #include "PuzzleGameInstance.h"
 
+#include "Engine/Engine.h"
 UPuzzleGameInstance::UPuzzleGameInstance(const FObjectInitializer &ObjectInitializer)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Constructor gameinstance"));
@@ -11,4 +12,20 @@ UPuzzleGameInstance::UPuzzleGameInstance(const FObjectInitializer &ObjectInitial
 void UPuzzleGameInstance::Init()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Init gameinstance"));
+}
+
+void UPuzzleGameInstance::Host()
+{
+	auto engine = GetEngine();
+	if (engine == nullptr) return;
+
+	engine->AddOnScreenDebugMessage(0, 5, FColor::Cyan, FString("Hosting"));
+}
+
+void UPuzzleGameInstance::Join(const FString& address)
+{
+	auto engine = GetEngine();
+	if (engine == nullptr) return;
+
+	engine->AddOnScreenDebugMessage(0, 5, FColor::Cyan, FString("Joining " + address));
 }
