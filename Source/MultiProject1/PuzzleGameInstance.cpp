@@ -3,6 +3,8 @@
 #include "PuzzleGameInstance.h"
 
 #include "Engine/Engine.h"
+#include "GameFramework/PlayerController.h"
+
 UPuzzleGameInstance::UPuzzleGameInstance(const FObjectInitializer &ObjectInitializer)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Constructor gameinstance"));
@@ -33,4 +35,9 @@ void UPuzzleGameInstance::Join(const FString& address)
 	if (engine == nullptr) return;
 
 	engine->AddOnScreenDebugMessage(0, 5, FColor::Cyan, FString("Joining " + address));
+	auto playerController = GetPrimaryPlayerController();
+	if (playerController == nullptr) return;
+
+	playerController->ClientTravel(address, ETravelType::TRAVEL_Absolute);
+
 }
