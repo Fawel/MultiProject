@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
+#include "Blueprint/UserWidget.h"
 #include "PuzzleGameInstance.generated.h"
-
 /**
  * 
  */
@@ -22,4 +22,6 @@ public:
 
 	UFUNCTION(Exec)
 		void Join(const FString& address); //we us address for preventing unnessary copy of string
+
+	TSubclassOf<class UUserWidget> menuWidget;
 };
